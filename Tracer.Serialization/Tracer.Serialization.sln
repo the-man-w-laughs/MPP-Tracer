@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tracer.Serialization.Json", "Tracer.Serialization.Json\Tracer.Serialization.Json.csproj", "{9D61F2C4-D25A-4158-841E-B944DC0C30D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tracer.Serialization.Xml", "Tracer.Serialization.Xml\Tracer.Serialization.Xml.csproj", "{154AF4A8-E110-49FB-B7EC-9BBA6EF23AAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tracer.Serialization.Yaml", "Tracer.Serialization.Yaml\Tracer.Serialization.Yaml.csproj", "{B6131B20-15D7-4165-8F60-30016324ABD3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9D61F2C4-D25A-4158-841E-B944DC0C30D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D61F2C4-D25A-4158-841E-B944DC0C30D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D61F2C4-D25A-4158-841E-B944DC0C30D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D61F2C4-D25A-4158-841E-B944DC0C30D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{154AF4A8-E110-49FB-B7EC-9BBA6EF23AAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{154AF4A8-E110-49FB-B7EC-9BBA6EF23AAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{154AF4A8-E110-49FB-B7EC-9BBA6EF23AAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{154AF4A8-E110-49FB-B7EC-9BBA6EF23AAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6131B20-15D7-4165-8F60-30016324ABD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6131B20-15D7-4165-8F60-30016324ABD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6131B20-15D7-4165-8F60-30016324ABD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6131B20-15D7-4165-8F60-30016324ABD3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
