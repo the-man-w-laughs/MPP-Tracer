@@ -1,18 +1,19 @@
+using System.Diagnostics;
+
 namespace Tracer.Core
 {
     public class MethodInfo
     {
-        public MethodInfo(string name, string @class, int ms)
+        public MethodInfo(string methodName, string className, Stopwatch stopwatch)
         {
-            Name = name;
-            Class = @class;
-            Milliseconds = ms;
+            MethodName = methodName;
+            ClassName = className;
+            StopWatch = stopwatch;
         }
 
-        public string Name { get; }
-        public string Class { get; }
-        internal long Milliseconds { get; set; }
-        //public string Time => $"{Milliseconds}ms"; TODO: move this into serialization modules
+        public string MethodName { get; }
+        public string ClassName { get; }
         public List<MethodInfo> Methods { get; } = new();
+        public Stopwatch StopWatch;
     }
 }
