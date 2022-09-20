@@ -8,8 +8,8 @@ public class Tracer : ITracer
     public TraceResult GetTraceResult()
     {
         Dictionary<int,ThreadInfo> traceResult = new();
-        for (int i = 1; i <= _threads.Count; i++){
-            traceResult.Add(i,_threads[i]);
+        foreach (var thread in _threads){
+            traceResult.Add(thread.Key,thread.Value);
         }
         return new TraceResult(traceResult);
     }

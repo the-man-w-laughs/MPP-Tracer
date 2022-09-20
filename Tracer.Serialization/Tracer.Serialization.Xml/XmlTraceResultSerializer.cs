@@ -71,14 +71,14 @@ public class XmlTraceResultSerializer : ITraceResultSerializer
         List<thread> resultList= new();
         List<method> methods;
         long time;
-        for (int i = 1; i <= traceResult.Threads.Count; i++){  
+        foreach (var thread in traceResult.Threads){  
             methods = new();
             time = 0;
-            foreach (var method in traceResult.Threads[i].Methods){
+            foreach (var method in thread.Value.Methods){
                 methods.Add(new method(method));
                 time += method.StopWatch.ElapsedMilliseconds;
             }
-            resultList.Add(new thread(i,time,methods));
+            resultList.Add(new thread(thread.Key,time,methods));
         }
         return resultList;
     }  
