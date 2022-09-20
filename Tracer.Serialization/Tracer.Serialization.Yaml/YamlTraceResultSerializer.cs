@@ -1,15 +1,16 @@
 ﻿namespace Tracer.Serialization.Json;
 
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using Tracer.Core;
 using Tracer.Serialization.Abstractions;
-using YamlDotNet.Serialization;
 
 public class YamlTraceResultSerializer : ITraceResultSerializer
 {
     public string Format{ 
         get {
-            return "Yaml";
+            return "Json";
         }
     }
 
@@ -47,6 +48,8 @@ public class YamlTraceResultSerializer : ITraceResultSerializer
             }
         }
         public String name;
+
+        [JsonPropertyName("class")]
         public String Class;
 
         public String time;
@@ -72,9 +75,7 @@ public class YamlTraceResultSerializer : ITraceResultSerializer
     public void Serialize(TraceResult traceResult, Stream to)
     {
         List<_ThreadInfo> serializableList = _ThreadResultToList(traceResult);
-
-        var serializer = new SerializerBuilder().DisableAliases().Build();
-        var result = serializer.Serialize(serializableList);
-        to.Write(Encoding.UTF8.GetBytes(result));
+        var res = JsonSerializer.Serialize<List<_ThreadInfo>>(serializableList);
+        to.Write(Encoding.Default.GetBytes(res));
     }
 }
