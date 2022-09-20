@@ -1,1 +1,12 @@
-﻿<?xml version="1.0" encoding="utf-8"?><ArrayOfThread xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><thread><methods><Method><methods><Method><methods /><name>InnerMethod</name><class>Bar</class><time>108ms</time></Method><Method><methods /><name>PupMethod</name><class>Pup</class><time>61ms</time></Method></methods><name>MyMethod</name><class>Foo</class><time>231ms</time></Method></methods><id>4</id><time>231ms</time></thread><thread><methods><Method><methods /><name>PupMethod</name><class>Pup</class><time>60ms</time></Method></methods><id>5</id><time>60ms</time></thread></ArrayOfThread>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfThread xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <thread id="4" time="227ms">
+        <method name="MyMethod" class="Foo" time="227ms">
+            <method name="InnerMethod" class="Bar" time="109ms" />
+            <method name="PupMethod" class="Pup" time="64ms" />
+        </method>
+    </thread>
+    <thread id="5" time="52ms">
+        <method name="PupMethod" class="Pup" time="52ms" />
+    </thread>
+</ArrayOfThread>

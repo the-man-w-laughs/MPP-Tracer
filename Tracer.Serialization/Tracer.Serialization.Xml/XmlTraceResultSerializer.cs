@@ -13,6 +13,8 @@ public class XmlTraceResultSerializer : ITraceResultSerializer
     }
 
     //[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]    
+    [Serializable]
+    [XmlType(TypeName = "thread")]
     public class thread{
 
         public thread(){
@@ -25,16 +27,22 @@ public class XmlTraceResultSerializer : ITraceResultSerializer
         }
 
        // [System.Xml.Serialization.XmlAttributeAttribute()]
+
+       [XmlAttribute("id")]
         public int id{get; set;}
        // [System.Xml.Serialization.XmlAttributeAttribute()]
+
+       [XmlAttribute("time")]
         public String time{get; set;}
 
+        [XmlElement(ElementName = "method")]
         public List<method> methods;        
     
     }
 
     //[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-    [XmlType("Method")]
+    [Serializable]
+    [XmlType(TypeName = "method")]
     public class method{
         public method(){
 
@@ -55,15 +63,17 @@ public class XmlTraceResultSerializer : ITraceResultSerializer
             }
         }
 
-        //[System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttribute("name")]
         public String name{get; set;}
         //[System.Xml.Serialization.XmlAttributeAttribute()]
-        [XmlElement(ElementName = "class")]
+        [XmlAttribute("class")]
         public String Class{get; set;}
 
         //[System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttribute("time")]
         public String time{get; set;}
 
+        [XmlElement(ElementName = "method")]
         public List<method>? methods;
     }
 
