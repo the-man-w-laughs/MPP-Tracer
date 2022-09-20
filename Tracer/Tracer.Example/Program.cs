@@ -26,7 +26,6 @@ internal class Program
         t1.Join();
         t2.Join();
 
-        foo.MyMethod();
         var traceResult = tracer.GetTraceResult();
         List<ITraceResultSerializer> serializers = SerializersLoader.GetSerializers("Serializers");
         foreach (var serializer in serializers){
@@ -40,19 +39,23 @@ internal class Program
 public class Foo
 {
     private Bar _bar;
+
+    private Pup _pup;
     private ITracer _tracer;
 
     internal Foo(ITracer tracer)
     {
         _tracer = tracer;
         _bar = new Bar(_tracer);
+        _pup = new Pup(_tracer);
     }
     
     public void MyMethod()
     {
         _tracer.StartTrace();
         Thread.Sleep(50);        
-        _bar.InnerMethod();        
+        _bar.InnerMethod(); 
+        _pup.PupMethod();       
         _tracer.StopTrace();
     }
 }
