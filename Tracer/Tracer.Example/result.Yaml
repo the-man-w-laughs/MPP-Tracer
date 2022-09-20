@@ -1,11 +1,29 @@
 - id: 1
-  time: 166ms
+  time: 170ms
   methods:
   - name: MyMethod
     Class: Foo
-    time: 166ms
+    time: 170ms
     methods:
     - name: InnerMethod
       Class: Bar
       time: 108ms
       methods: []
+- id: 4
+  time: 163ms
+  methods:
+  - name: MyMethod
+    Class: Foo
+    time: 163ms
+    methods:
+    - name: InnerMethod
+      Class: Bar
+      time: 110ms
+      methods: []
+- id: 5
+  time: 52ms
+  methods:
+  - name: PupMethod
+    Class: Pup
+    time: 52ms
+    methods: []

@@ -8,6 +8,24 @@ internal class Program
     {
         Tracer.Core.Tracer tracer = new();
         Foo foo = new(tracer);
+        Pup pup = new(tracer);
+
+        var t1 = new Thread(() =>
+        {
+            foo.MyMethod();
+        });
+
+        var t2 = new Thread(() =>
+        {
+            pup.PupMethod();
+        });
+
+        t1.Start();
+        t2.Start();
+
+        t1.Join();
+        t2.Join();
+
         foo.MyMethod();
         var traceResult = tracer.GetTraceResult();
         List<ITraceResultSerializer> serializers = SerializersLoader.GetSerializers("Serializers");
@@ -52,6 +70,22 @@ public class Bar
     {
         _tracer.StartTrace();
         Thread.Sleep(100);
+        _tracer.StopTrace();
+    }
+}
+
+public class Pup{
+    private ITracer _tracer;
+
+    internal Pup(ITracer tracer)
+    {
+        _tracer = tracer;
+    }
+    
+    public void PupMethod()
+    {
+        _tracer.StartTrace();
+        Thread.Sleep(50);
         _tracer.StopTrace();
     }
 }
