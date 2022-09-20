@@ -1,11 +1,11 @@
 - id: 1
-  time: 0
+  time: 166ms
   methods:
   - name: MyMethod
     Class: Foo
-    time: 0ms
+    time: 166ms
     methods:
     - name: InnerMethod
       Class: Bar
-      time: 0ms
+      time: 108ms
       methods: []

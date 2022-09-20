@@ -18,13 +18,13 @@ public class JsonTraceResultSerializer : ITraceResultSerializer
 
         public _ThreadInfo(int id,long time,List<_MethodInfo> methods){
             this.id = id;
-            this.time = time;
+            this.time = $"{time}ms";
             this.methods = methods;
         }
 
         public int id{get; set;}
 
-        public long time{get; set;}
+        public String time{get; set;}
 
         public List<_MethodInfo> methods{get; set;}      
     

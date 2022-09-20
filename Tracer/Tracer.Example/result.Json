@@ -1,1 +1,1 @@
-[{"id":1,"time":0,"methods":[{"name":"MyMethod","class":"Foo","time":"0ms","methods":[{"name":"InnerMethod","class":"Bar","time":"0ms","methods":[]}]}]}]
+[{"id":1,"time":"166ms","methods":[{"name":"MyMethod","class":"Foo","time":"166ms","methods":[{"name":"InnerMethod","class":"Bar","time":"108ms","methods":[]}]}]}]

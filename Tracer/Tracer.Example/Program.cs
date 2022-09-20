@@ -33,6 +33,7 @@ public class Foo
     public void MyMethod()
     {
         _tracer.StartTrace();
+        Thread.Sleep(50);        
         _bar.InnerMethod();        
         _tracer.StopTrace();
     }
@@ -50,6 +51,7 @@ public class Bar
     public void InnerMethod()
     {
         _tracer.StartTrace();
+        Thread.Sleep(100);
         _tracer.StopTrace();
     }
 }

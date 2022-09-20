@@ -12,7 +12,7 @@ public class XmlTraceResultSerializer : ITraceResultSerializer
         }
     }
 
-    //[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    //[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]    
     public class thread{
 
         public thread(){
@@ -20,20 +20,21 @@ public class XmlTraceResultSerializer : ITraceResultSerializer
         }
         public thread(int id,long time,List<method> methods){
             this.id = id;
-            this.time = time;
+            this.time = $"{time}ms";
             this.methods = methods;
         }
 
        // [System.Xml.Serialization.XmlAttributeAttribute()]
         public int id{get; set;}
        // [System.Xml.Serialization.XmlAttributeAttribute()]
-        public long time{get; set;}
+        public String time{get; set;}
 
         public List<method> methods;        
     
     }
 
     //[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    [XmlType("Method")]
     public class method{
         public method(){
 
