@@ -8,7 +8,7 @@ public class Tracer : ITracer
     public TraceResult GetTraceResult()
     {
         Dictionary<int,ThreadInfo> traceResult = new();
-        for (int i = 0; i < _threads.Count; i++){
+        for (int i = 1; i <= _threads.Count; i++){
             traceResult.Add(i,_threads[i]);
         }
         return new TraceResult(traceResult);
@@ -28,9 +28,13 @@ public class Tracer : ITracer
         Stopwatch stopwatch = new();
         var methodIndo = new MethodInfo(methodName,className,stopwatch);
 
-        var parentMethod = threadInfo.RunninigMethods.First();
-
-        parentMethod.Methods.Add(methodIndo);
+        if (threadInfo.RunninigMethods.Count != 0){ 
+            var parentMethod = threadInfo.RunninigMethods.First();
+            parentMethod.Methods.Add(methodIndo);
+        }
+        else{
+            threadInfo.Methods.Add(methodIndo);
+        }
         threadInfo.RunninigMethods.Push(methodIndo);
 
         stopwatch.Start();        

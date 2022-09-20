@@ -59,7 +59,7 @@ public class YamlTraceResultSerializer : ITraceResultSerializer
         List<_ThreadInfo> resultList= new();
         List<_MethodInfo> methods;
         long time;
-        for (int i = 0; i < traceResult.Threads.Count; i++){  
+        for (int i = 1; i <= traceResult.Threads.Count; i++){  
             methods = new();
             time = 0;
             foreach (var method in traceResult.Threads[i].Methods){

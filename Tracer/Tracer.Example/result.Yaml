@@ -1,0 +1,11 @@
+- id: 1
+  time: 0
+  methods:
+  - name: MyMethod
+    Class: Foo
+    time: 0ms
+    methods:
+    - name: InnerMethod
+      Class: Bar
+      time: 0ms
+      methods: []

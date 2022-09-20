@@ -14,7 +14,7 @@ public class JsonTraceResultSerializer : ITraceResultSerializer
         }
     }
 
-    private class _ThreadInfo{
+    public class _ThreadInfo{
 
         public _ThreadInfo(int id,long time,List<_MethodInfo> methods){
             this.id = id;
@@ -22,15 +22,15 @@ public class JsonTraceResultSerializer : ITraceResultSerializer
             this.methods = methods;
         }
 
-        public int id;
+        public int id{get; set;}
 
-        public long time;
+        public long time{get; set;}
 
-        public List<_MethodInfo> methods;        
+        public List<_MethodInfo> methods{get; set;}      
     
     }
 
-    private class _MethodInfo{
+    public class _MethodInfo{
 
         public _MethodInfo(MethodInfo method){
 
@@ -47,21 +47,21 @@ public class JsonTraceResultSerializer : ITraceResultSerializer
                 this.methods = null;
             }
         }
-        public String name;
+        public String name{get; set;}
 
         [JsonPropertyName("class")]
-        public String Class;
+        public String Class{get; set;}
 
-        public String time;
+        public String time{get; set;}
 
-        public List<_MethodInfo>? methods;
+        public List<_MethodInfo>? methods{get; set;}
     }
 
     private List<_ThreadInfo> _ThreadResultToList(TraceResult traceResult){
         List<_ThreadInfo> resultList= new();
         List<_MethodInfo> methods;
         long time;
-        for (int i = 0; i < traceResult.Threads.Count; i++){  
+        for (int i = 1; i <= traceResult.Threads.Count; i++){  
             methods = new();
             time = 0;
             foreach (var method in traceResult.Threads[i].Methods){
@@ -75,7 +75,7 @@ public class JsonTraceResultSerializer : ITraceResultSerializer
     public void Serialize(TraceResult traceResult, Stream to)
     {
         List<_ThreadInfo> serializableList = _ThreadResultToList(traceResult);
-        var res = JsonSerializer.Serialize<List<_ThreadInfo>>(serializableList);
+        var res = JsonSerializer.Serialize(serializableList);
         to.Write(Encoding.Default.GetBytes(res));
     }
 }

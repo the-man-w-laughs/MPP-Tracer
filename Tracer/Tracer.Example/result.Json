@@ -1,0 +1,1 @@
+[{"id":1,"time":0,"methods":[{"name":"MyMethod","class":"Foo","time":"0ms","methods":[{"name":"InnerMethod","class":"Bar","time":"0ms","methods":[]}]}]}]
