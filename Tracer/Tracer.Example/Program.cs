@@ -1,6 +1,7 @@
 ﻿using Tracer.Core;
 using Tracer.Serialization;
 using Tracer.Serialization.Abstractions;
+using static System.Net.Mime.MediaTypeNames;
 
 internal class Program
 {
@@ -27,13 +28,10 @@ internal class Program
         t2.Join();
 
         var traceResult = tracer.GetTraceResult();
-        List<ITraceResultSerializer> serializers = SerializersLoader.GetSerializers("Serializers");
-        foreach (var serializer in serializers){
-            using (var fileStream = new FileStream($"result.{serializer.Format}", FileMode.Create)){
-                    serializer.Serialize(traceResult, fileStream);
-                }
-        }
-        }
+
+        //TODO: Код ниже в tracer.serialization
+        Serializers.SerializeIntoFiles(traceResult, "Serializers", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Results"));
+    }
 }
 
 public class Foo
@@ -49,13 +47,13 @@ public class Foo
         _bar = new Bar(_tracer);
         _pup = new Pup(_tracer);
     }
-    
+
     public void MyMethod()
     {
         _tracer.StartTrace();
-        Thread.Sleep(50);        
-        _bar.InnerMethod(); 
-        _pup.PupMethod();       
+        Thread.Sleep(50);
+        _bar.InnerMethod();
+        _pup.PupMethod();
         _tracer.StopTrace();
     }
 }
@@ -68,7 +66,7 @@ public class Bar
     {
         _tracer = tracer;
     }
-    
+
     public void InnerMethod()
     {
         _tracer.StartTrace();
@@ -77,14 +75,15 @@ public class Bar
     }
 }
 
-public class Pup{
+public class Pup
+{
     private ITracer _tracer;
 
     internal Pup(ITracer tracer)
     {
         _tracer = tracer;
     }
-    
+
     public void PupMethod()
     {
         _tracer.StartTrace();

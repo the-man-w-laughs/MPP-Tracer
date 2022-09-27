@@ -1,9 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
-    <ProjectReference Include="..\..\Tracer\Tracer.Serialization.Abstractions\Tracer.Serialization.Abstractions.csproj"/>
+    <ProjectReference Include="..\..\Tracer\Tracer.Serialization.Abstractions\Tracer.Serialization.Abstractions.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="YamlDotNet" Version="12.0.13-fix-prereleases-on-artifactory-0001"/>
+    <PackageReference Include="YamlDotNet" Version="12.0.13-fix-prereleases-on-artifactory-0001" />
   </ItemGroup>
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>

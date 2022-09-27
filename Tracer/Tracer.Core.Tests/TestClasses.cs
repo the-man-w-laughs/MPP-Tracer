@@ -1,16 +1,19 @@
 using Tracer.Core;
 
-public class A1{
+public class A1
+{
     private ITracer _tracer;
 
     private B1 b1;
 
-    public A1(ITracer tracer){
+    public A1(ITracer tracer)
+    {
         this._tracer = tracer;
         b1 = new(tracer);
     }
 
-    public void a(){
+    public void a()
+    {
         _tracer.StartTrace();
         Thread.Sleep(100);
         b1.b();
@@ -18,44 +21,123 @@ public class A1{
     }
 }
 
-public class B1{
+public class B1
+{
     private ITracer _tracer;
 
-    public B1(ITracer tracer){
+    public B1(ITracer tracer)
+    {
         this._tracer = tracer;
     }
 
-    public void b(){
+    public void b()
+    {
         _tracer.StartTrace();
         Thread.Sleep(100);
         _tracer.StopTrace();
     }
 }
 
-public class A2{
+public class A2
+{
     private ITracer _tracer;
 
-    public A2(ITracer tracer){
+    public A2(ITracer tracer)
+    {
         this._tracer = tracer;
     }
 
-    public void a(){
+    public void a()
+    {
         _tracer.StartTrace();
         Thread.Sleep(100);
         _tracer.StopTrace();
     }
 }
 
-public class B2{
+public class B2
+{
     private ITracer _tracer;
 
-    public B2(ITracer tracer){
+    public B2(ITracer tracer)
+    {
         this._tracer = tracer;
     }
 
-    public void b(){
+    public void b()
+    {
         _tracer.StartTrace();
         Thread.Sleep(100);
         _tracer.StopTrace();
     }
 }
+
+public class A3
+{
+    private ITracer _tracer;
+
+    public A3(ITracer tracer)
+    {
+        this._tracer = tracer;
+    }
+
+    public void a()
+    {
+        _tracer.StartTrace();
+        Thread.Sleep(100);
+        _tracer.StopTrace();
+    }
+}
+
+public class B3
+{
+    private ITracer _tracer;
+
+    public B3(ITracer tracer)
+    {
+        this._tracer = tracer;
+    }
+
+    public void b()
+    {
+        _tracer.StartTrace();
+        Thread.Sleep(100);
+        _tracer.StopTrace();
+    }
+}
+
+public class C3
+{
+    private ITracer _tracer;
+
+    public C3(ITracer tracer)
+    {
+        this._tracer = tracer;
+    }
+
+    public void c()
+    {
+        _tracer.StartTrace();
+        Thread.Sleep(100);
+        _tracer.StopTrace();
+    }
+}
+
+public class D4
+{
+    private ITracer _tracer;
+
+    public D4(ITracer tracer)
+    {
+        this._tracer = tracer;
+    }
+
+    public void d()
+    {
+        _tracer.StartTrace();
+        Thread.Sleep(100);
+        _tracer.StopTrace();
+    }
+}
+
+
